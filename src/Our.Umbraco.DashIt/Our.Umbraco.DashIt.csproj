@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <ContentTargetFolders>.</ContentTargetFolders>
+        <Product>Our.Umbraco.DashIt</Product>
+        <PackageId>Our.Umbraco.DashIt</PackageId>
+        <Title>Our.Umbraco.DashIt</Title>
+        <Description>...</Description>
+        <Product>...</Product>
+        <PackageTags>umbraco plugin package</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0-rc001" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0-rc001" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="App_Plugins\Our.Umbraco.DashIt\**\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\dashboard.html" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\package.manifest" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\scripts\controllers\dashboard.controller.js" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\scripts\vendor\masonry.directive.js" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\scripts\vendor\masonry.pkgd.min.js" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\styles\dashboard.css" />
+      <None Remove="App_Plugins\Our.Umbraco.DashIt\views\widgets\stat.html" />
+    </ItemGroup>
+</Project>

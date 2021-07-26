@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <OurUmbracoDashItContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.DashIt\**\*.*</OurUmbracoDashItContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyOurUmbracoDashItAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <OurUmbracoDashItContentFiles Include="$(OurUmbracoDashItContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Our.Umbraco.DashIt files: $(OurUmbracoDashItContentFilesPath) - #@(OurUmbracoDashItContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(OurUmbracoDashItContentFiles)"
+            DestinationFiles="@(OurUmbracoDashItContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.DashIt\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearOurUmbracoDashItAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <OurUmbracoDashItDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.DashIt\" />
+        </ItemGroup>
+        <Message Text="Clear old Our.Umbraco.DashIt data"  Importance="high" />
+        <RemoveDir Directories="@(OurUmbracoDashItDir)"  />
+    </Target>
+
+</Project>

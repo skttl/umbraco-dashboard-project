@@ -1,0 +1,18 @@
+﻿{
+    "dashboards":  [
+        {
+            "alias": "dashItDashboard",
+            "view":  "~/App_Plugins/Our.Umbraco.DashIt/dashboard.html",
+            "sections":  [ "content" ],
+            "weight": -10
+        }
+    ],
+  "javascript": [
+    "~/App_Plugins/Our.Umbraco.DashIt/scripts/controllers/dashboard.controller.js",
+    "~/App_Plugins/Our.Umbraco.DashIt/scripts/vendor/masonry.pkgd.min.js",
+    "~/App_Plugins/Our.Umbraco.DashIt/scripts/directives/masonry.directive.js"
+  ],
+  "css": [
+    "~/App_Plugins/Our.Umbraco.DashIt/styles/dashboard.css"
+  ]
+}

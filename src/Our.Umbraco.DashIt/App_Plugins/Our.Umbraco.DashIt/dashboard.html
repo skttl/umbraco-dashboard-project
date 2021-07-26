@@ -1,0 +1,9 @@
+﻿<div ng-controller="Our.Umbraco.DashIt.DashboardController as vm">
+    <umb-load-indicator ng-if="vm.loading || !vm.loaded"></umb-load-indicator>
+
+    <div ng-if="vm.loaded" class="dashit__grid">
+        <div ng-repeat="widget in vm.widgets" class="item dashit__widget dashit__widget--{{ widget.Size.toLowerCase() }}">
+            <div ng-include="widget.View"></div>
+        </div>
+    </div>
+</div>
